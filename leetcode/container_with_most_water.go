@@ -1,4 +1,9 @@
-import "math"
+func min(a int, b int) int{
+    if a>b{
+        return b
+    }
+    return a
+}
 func maxArea(height []int) int {
     
     var l,ans int
@@ -6,8 +11,8 @@ func maxArea(height []int) int {
     
     for l<r{
         
-        temp:=(r-l)*int(math.Min(float64(height[r]),float64(height[l])))
-        ans=int(math.Max(float64(ans),float64(temp)))
+        temp:=(r-l)*min(height[l],height[r])
+        ans=-min(-ans,-temp)
         
         if height[l]<height[r]{
             l++
